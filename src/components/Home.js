@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Nav from "./Nav/Nav"
 
 const Home = (props) => {
   const handleClick = () => {
@@ -14,28 +15,13 @@ const Home = (props) => {
   };
 
   return (
-    <div>
-      {props.loggedInStatus ? (
-        <div>
-          <Link to="/logout" onClick={handleClick}>
-            Log Out
-          </Link>
-        </div>
-      ) : (
-        <div>
-          <Link to="/login">Log In</Link>
-          <br></br>
-          <Link to="/signup">Sign Up</Link>
-          <br></br>
-        </div>
-      )}
-    </div>
+    <Nav loggedInStatus={props.loggedInStatus} handleClick={handleClick} />
   );
-    
 };
 export default Home;
 
-{/* <div>
+{
+  /* <div>
       <Link to="/login">Log In</Link>
       <br></br>
       <Link to="/signup">Sign Up</Link>
@@ -45,4 +31,5 @@ export default Home;
           Log Out
         </Link>
       ) : null}
-</div> */}
+</div> */
+}
