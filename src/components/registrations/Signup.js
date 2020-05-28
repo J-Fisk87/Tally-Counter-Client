@@ -39,6 +39,10 @@ class Signup extends Component {
         }
       })
       .catch((error) => console.log("api errors:", error));
+
+      this.props.closeModal();
+      
+
   };
   redirect = () => {
     this.props.history.push("/");
