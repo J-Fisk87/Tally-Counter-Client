@@ -3,8 +3,10 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import Nav from "./Nav/Nav";
 import Window from "./Window";
-import UserFeed from "./UserFeed";
+import UserFeed from "./UserFeed/UserFeed";
 import LoginModal from "./registrations/LoginModalShell";
+import { Grid } from "semantic-ui-react";
+
 
 const Home = (props) => {
   const handleClick = () => {
@@ -19,9 +21,11 @@ const Home = (props) => {
 
   return (
     <React.Fragment>
-      <Nav loggedInStatus={props.loggedInStatus} handleClick={handleClick} />
-      <Window />
-      <UserFeed />
+      <Grid container alignItems="right">
+        <Nav loggedInStatus={props.loggedInStatus} handleClick={handleClick} />
+        <Window />
+        <UserFeed />
+      </Grid>
       {/* <LoginModal
         open={props.loggedInStatus}
         // loggedInStatus={props.loggedInStatus}

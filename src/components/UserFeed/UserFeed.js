@@ -1,5 +1,6 @@
 import React from "react";
-import { Feed } from "semantic-ui-react";
+import { Feed, Grid } from "semantic-ui-react";
+// import './UserFeed.css'
 
 export default class UserFeed extends React.Component {
   render() {
@@ -8,7 +9,7 @@ export default class UserFeed extends React.Component {
       // match the keys in the Feed. Refer to "https://react.semantic-ui.com/views/feed/#types-events-prop"
 
       // "Feed" is a semantic-ui tag, "UserFeed" is our react class component
-      <Feed events={null} />
+        <Feed events={null} className="ui five wide column" />
     );
   }
 }
