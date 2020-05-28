@@ -40,7 +40,7 @@ class Signup extends Component {
       })
       .catch((error) => console.log("api errors:", error));
 
-      this.props.closeModal();
+      // this.props.closeModal();
       
 
   };
