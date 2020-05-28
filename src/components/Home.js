@@ -2,6 +2,9 @@ import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Nav from "./Nav/Nav"
+import Window from "./Window";
+import UserFeed from "./UserFeed";
+import LoginModal from "./registrations/LoginModal"
 
 const Home = (props) => {
   const handleClick = () => {
@@ -14,8 +17,15 @@ const Home = (props) => {
       .catch((error) => console.log(error));
   };
 
+
+
   return (
-    <Nav loggedInStatus={props.loggedInStatus} handleClick={handleClick} />
+    <React.Fragment>
+      <Nav loggedInStatus={props.loggedInStatus} handleClick={handleClick} />
+      <Window />
+      <UserFeed />
+      <LoginModal loggedInStatus={props.loggedInStatus} />
+    </React.Fragment>
   );
 };
 export default Home;
