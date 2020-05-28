@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import { Button, Icon, Modal } from "semantic-ui-react";
 import { Link } from "react-router-dom";
-import Login from "./Login";
+import Signup from "./Signup";
 
-export default class LogInContainer extends Component {
-  state = { open: false };
+export default class SignUpContainer extends Component {
+  constructor() {
+    super();
+    this.state = { open: false };
+  }
 
   open = () => this.setState({ open: true });
   close = () => {
@@ -22,17 +25,14 @@ export default class LogInContainer extends Component {
         size="small"
         trigger={
           <Button primary icon>
-            Log In <Icon name="right chevron" />
+            Sign Up <Icon name="right chevron" />
           </Button>
         }
       >
         <Modal.Header>Modal #2</Modal.Header>
         <Modal.Content>
-          <Login closeModal={this.close} history={this.props.history} />
+          <Signup closeModal={this.close} history={this.props.history} />
         </Modal.Content>
-        {/* <Modal.Actions>
-          <Button icon="check" content="All Done" onClick={this.close} />
-        </Modal.Actions> */}
       </Modal>
     );
   }

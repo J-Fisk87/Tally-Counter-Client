@@ -32,7 +32,6 @@ class Login extends Component {
       .post("http://localhost:3001/login", { user }, { withCredentials: true })
       .then((response) => {
         if (response.data.logged_in) {
-          // this.props.closeModal()
           this.props.handleLogin(response.data);
           this.redirect();
         } else {
@@ -43,6 +42,7 @@ class Login extends Component {
       })
       .catch((error) => console.log("api errors:", error));
 
+      // this.props.closeModal()
   };
 
   redirect = () => {

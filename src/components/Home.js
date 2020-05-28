@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Nav from "./Nav/Nav";
 import Window from "./Window";
 import UserFeed from "./UserFeed";
-import LoginModal from "./registrations/LoginModal";
+import LoginModal from "./registrations/LoginModalShell";
 
 const Home = (props) => {
   const handleClick = () => {
