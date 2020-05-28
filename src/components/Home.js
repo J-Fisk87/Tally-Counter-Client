@@ -24,7 +24,7 @@ const Home = (props) => {
       <Grid container alignItems="right">
         <Nav loggedInStatus={props.loggedInStatus} handleClick={handleClick} />
         <Window />
-        <UserFeed />
+        <UserFeed allTallies={props.allTallies}/>
       </Grid>
       {/* <LoginModal
         open={props.loggedInStatus}

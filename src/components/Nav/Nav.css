@@ -2,15 +2,16 @@
 
 .navbar {
   display: flex;
-  align-items: right;
+  align-items: center;
   justify-content: space-between;
   padding: 0.5rem 2.5rem;
   position: absolute;
   z-index: 1;
   width: 100%;
   background-color: rgb(37, 193, 125);
-
-
+  top: 0;
+  left: 0;
+  height: 4rem;
 }
 
 .navbar-sticky {

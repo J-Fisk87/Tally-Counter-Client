@@ -9,7 +9,7 @@ export default class UserFeed extends React.Component {
       // match the keys in the Feed. Refer to "https://react.semantic-ui.com/views/feed/#types-events-prop"
 
       // "Feed" is a semantic-ui tag, "UserFeed" is our react class component
-        <Feed events={null} className="ui five wide column" />
+        <Feed events={this.props.allTallies} className="ui five wide column" />
     );
   }
 }
