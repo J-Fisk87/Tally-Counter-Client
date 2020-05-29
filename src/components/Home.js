@@ -7,7 +7,6 @@ import UserFeed from "./UserFeed/UserFeed";
 import LoginModal from "./registrations/LoginModalShell";
 import { Grid } from "semantic-ui-react";
 
-
 const Home = (props) => {
   const handleClick = () => {
     axios
@@ -24,7 +23,10 @@ const Home = (props) => {
       <Grid container alignItems="right">
         <Nav loggedInStatus={props.loggedInStatus} handleClick={handleClick} />
         <Window />
-        <UserFeed allTallies={props.allTallies}/>
+        <UserFeed
+          getAllTallies={props.getAllTallies}
+          allTallies={props.allTallies}
+        />
       </Grid>
       {/* <LoginModal
         open={props.loggedInStatus}

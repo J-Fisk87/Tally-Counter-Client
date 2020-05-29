@@ -83,6 +83,7 @@ class App extends Component {
                   handleLogout={this.handleLogout} //pass prop
                   loggedInStatus={this.state.isLoggedIn}
                   allComments={this.state.allComments}
+                  getAllTallies={this.getAllTallies}
                   allTallies={this.state.allTallies}
                 />
               )}
