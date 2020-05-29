@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Nav from "./Nav/Nav";
@@ -7,35 +7,83 @@ import UserFeed from "./UserFeed/UserFeed";
 import LoginModal from "./registrations/LoginModalShell";
 import { Grid } from "semantic-ui-react";
 
-const Home = (props) => {
-  const handleClick = () => {
+const API = "http://localhost:3001";
+
+class Home extends Component {
+  constructor() {
+    super();
+    this.state = {
+      allTallies: [],
+      allComments: [],
+    };
+  }
+
+  componentDidMount() {
+    this.getAllTallies();
+    this.getAllComments();
+  }
+
+  getAllTallies = () => {
+    fetch(`${API}/tallies`)
+      .then((res) => res.json())
+      .then((tallies) =>
+        // this.setState({
+          allTallies: tallies.map(tally => {
+            console.log(tally),
+            {
+            date: tally.created_at,
+            summary: tally.content
+            // user: User.find(user => user.id === tally.user_id)
+          }
+        }),
+        // })
+      );
+  };
+
+  getAllComments = () => {
+    fetch(`${API}/comments`)
+      .then((res) => res.json())
+      .then((comments) =>
+        this.setState({
+          allComments: comments,
+        })
+      )
+      .then();
+  };
+
+  logOut = () => {
     axios
       .delete("http://localhost:3001/logout", { withCredentials: true })
       .then((response) => {
-        props.handleLogout();
-        props.history.push("/");
+        this.props.handleLogout();
+        this.props.history.push("/");
       })
       .catch((error) => console.log(error));
   };
 
-  return (
-    <React.Fragment>
-      <Grid container alignItems="right">
-        <Nav loggedInStatus={props.loggedInStatus} handleClick={handleClick} />
-        <Window />
-        <UserFeed
-          getAllTallies={props.getAllTallies}
-          allTallies={props.allTallies}
-        />
-      </Grid>
-      {/* <LoginModal
+  render() {
+    return (
+      <React.Fragment>
+        <Grid container alignItems="right">
+          <Nav
+            loggedInStatus={this.props.loggedInStatus}
+            handleClick={this.logOut}
+          />
+          <Window />
+          <UserFeed
+            getAllTallies={this.getAllTallies}
+            allTallies={this.state.allTallies}
+          />
+        </Grid>
+        {/* <LoginModal
         open={props.loggedInStatus}
         // loggedInStatus={props.loggedInStatus}
         history={props.history}
       /> */}
-    </React.Fragment>
-  );
-};
+      </React.Fragment>
+    );
+  }
+}
 export default Home;
 
 {

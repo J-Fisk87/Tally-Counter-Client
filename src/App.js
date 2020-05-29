@@ -6,21 +6,22 @@ import Login from "./components/registrations/Login";
 import Signup from "./components/registrations/Signup";
 import "./App.css"
 
-const API = "http://localhost:3001"
+// const API = "http://localhost:3001"
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       isLoggedIn: false,
       user: {},
-      allTallies: [],
-      allComments: [],
+      // allTallies: [],
+      // allComments: [],
     };
   }
   componentDidMount() {
+    console.log('app')
     this.loginStatus();
-    this.getAllTallies();
-    this.getAllComments();
+    // this.getAllTallies();
+    // this.getAllComments();
   }
 
   loginStatus = () => {
@@ -49,25 +50,25 @@ class App extends Component {
     });
   };
 
-  getAllTallies = () => {
-    fetch(`${API}/tallies`)
-      .then((res) => res.json())
-      .then((tallies) =>
-        this.setState({
-          allTallies: tallies,
-        })
-      );
-  };
+  // getAllTallies = () => {
+  //   fetch(`${API}/tallies`)
+  //     .then((res) => res.json())
+  //     .then((tallies) =>
+  //       this.setState({
+  //         allTallies: tallies,
+  //       })
+  //     );
+  // };
 
-  getAllComments = () => {
-    fetch(`${API}/comments`)
-      .then((res) => res.json())
-      .then((comments) =>
-        this.setState({
-          allComments: comments,
-        })
-      );
-  };
+  // getAllComments = () => {
+  //   fetch(`${API}/comments`)
+  //     .then((res) => res.json())
+  //     .then((comments) =>
+  //       this.setState({
+  //         allComments: comments,
+  //       })
+  //     );
+  // };
 
   render() {
     return (
