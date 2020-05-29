@@ -4,24 +4,16 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Login from "./components/registrations/Login";
 import Signup from "./components/registrations/Signup";
-import "./App.css"
-
-// const API = "http://localhost:3001"
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       isLoggedIn: false,
       user: {},
-      // allTallies: [],
-      // allComments: [],
     };
   }
   componentDidMount() {
-    console.log('app')
     this.loginStatus();
-    // this.getAllTallies();
-    // this.getAllComments();
   }
 
   loginStatus = () => {
@@ -49,49 +41,23 @@ class App extends Component {
       user: {},
     });
   };
-
-  // getAllTallies = () => {
-  //   fetch(`${API}/tallies`)
-  //     .then((res) => res.json())
-  //     .then((tallies) =>
-  //       this.setState({
-  //         allTallies: tallies,
-  //       })
-  //     );
-  // };
-
-  // getAllComments = () => {
-  //   fetch(`${API}/comments`)
-  //     .then((res) => res.json())
-  //     .then((comments) =>
-  //       this.setState({
-  //         allComments: comments,
-  //       })
-  //     );
-  // };
-
   render() {
     return (
-      <div className="app">
+      <div>
         <BrowserRouter>
           <Switch>
             <Route
-              exact
-              path="/"
+              exact path="/"
               render={(props) => (
                 <Home
                   {...props}
                   handleLogout={this.handleLogout} //pass prop
                   loggedInStatus={this.state.isLoggedIn}
-                  allComments={this.state.allComments}
-                  getAllTallies={this.getAllTallies}
-                  allTallies={this.state.allTallies}
                 />
               )}
             />
             <Route
-              exact
-              path="/login"
+              exact path="/login"
               render={(props) => (
                 <Login
                   {...props}
@@ -101,8 +67,7 @@ class App extends Component {
               )}
             />
             <Route
-              exact
-              path="/signup"
+              exact path="/signup"
               render={(props) => (
                 <Signup
                   {...props}
